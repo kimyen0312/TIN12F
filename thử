@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #f0f8ff;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+        }
+        h3 {
+            color: blue;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Bạn vui lòng đánh giá website của tôi</h3>
+        <form id="feedbackForm">
+            <input type="checkbox" name="rating" value="Bố cục hợp lý"> Bố cục hợp lý<br>
+            <input type="checkbox" name="rating" value="Giao diện đẹp"> Giao diện đẹp<br>
+            <input type="checkbox" name="rating" value="Màu sắc hài hòa"> Màu sắc hài hòa<br>
+            <input type="checkbox" name="rating" value="Nội dung bổ ích"> Nội dung bổ ích<br>
+            <button type="button" onclick="submitFeedback()">ĐÁNH GIÁ</button>
+        </form>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            let checkedBoxes = document.querySelectorAll('input[name="rating"]:checked');
+            let feedback = [];
+            checkedBoxes.forEach(box => feedback.push(box.value));
+            
+            if (feedback.length > 0) {
+                alert("Cảm ơn bạn đã đánh giá: " + feedback.join(", "));
+            } else {
+                alert("Vui lòng chọn ít nhất một tiêu chí để đánh giá.");
+            }
+        }
+    </script>
+</body>
+</html>
